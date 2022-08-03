@@ -1,5 +1,6 @@
 @startuml
 
+skinparam shadowing true
 
 cloud awsiot as "AWS IoT" #Linen {
     component testclient as "MQTT test client"  #Lavender
