@@ -50,4 +50,4 @@ Message: Hei hei ESP32!
 Value: 2.14159
 ```
 
-**Gratulerer!** Du har nå satt opp en ESP32 til å sende og motta meldinger toil AWS IoT.
+**Gratulerer!** Du har nå satt opp en ESP32 til å sende og motta meldinger til AWS IoT.
