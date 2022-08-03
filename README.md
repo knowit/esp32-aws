@@ -45,4 +45,4 @@ Vi setter opp Mongoose OS på en dings. Dingsen vi bruker heter ESP32. En ESP32 
 Vi velger skyleverandør litt etter magefølelsen, og lander da på Amazon.
 
 ## Leksjoner
-- [Hello AWS](./hello-aws/esp32awsiot_1.md)
+- [Hello AWS](./hello-aws/README.md)
