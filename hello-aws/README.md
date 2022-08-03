@@ -7,4 +7,4 @@ Begynn med å test at programmering mot - og kommunikasjon med - ESP32 fungerer 
 
 [Klikk her for instruksjoner](https://github.com/knowit/esp32-intro/blob/main/Leksjoner/HelloWorld/README.md)
 
-Gå videre til: [AWS IoT Console](./esp32awsiot_2.md)
+Gå videre til: [AWS IoT Console](./2_AWS_IoT_Console.md)

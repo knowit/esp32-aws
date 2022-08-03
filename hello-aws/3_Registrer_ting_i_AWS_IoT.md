@@ -1,4 +1,4 @@
-# Hello AWS: Registrer ting i AWS Iot
+# Hello AWS: Registrer ting i AWS IoT
 
 
 ## Opprett Policy
@@ -67,4 +67,4 @@
 1. Klikk ```Done```
 1. ```MyNewESP32``` skal nå komme opp i listen over things
 
-Gå videre til: [Legg inn hovedprogram](./esp32awsiot_4.md)
+Gå videre til: [Legg inn hovedprogram](./4_Legg_inn_hovedprogram.md)

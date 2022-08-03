@@ -8,4 +8,4 @@ Connecting to AWS IOT
 OK - Connected to AWS IoT
 ```
 
-Gå videre til: [Send og motta meldinger](./esp32awsiot_7.md)
+Gå videre til: [Send og motta meldinger](./7_Send_og_motta_meldinger.md)

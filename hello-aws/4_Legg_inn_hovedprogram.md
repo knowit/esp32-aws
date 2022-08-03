@@ -110,4 +110,4 @@ void loop()
 }
 ```
 
-Gå videre til: [Konfigurasjon og sertifikater](./esp32awsiot_5.md)
+Gå videre til: [Konfigurasjon og sertifikater](./5_Konfigurasjon_og_sertifikater.md)

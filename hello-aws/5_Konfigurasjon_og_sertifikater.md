@@ -107,4 +107,4 @@ static const char AWS_CERT_CRT[]
 static const char AWS_CERT_PRIVATE[]
 ```
 
-Gå videre til: [Test programmet](./esp32awsiot_6.md)
+Gå videre til: [Test programmet](./6_Test_programmet.md)
