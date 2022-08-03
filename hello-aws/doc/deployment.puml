@@ -1,0 +1,19 @@
+@startuml
+
+
+cloud awsiot as "AWS IoT" #Linen {
+    component testclient as "MQTT test client"  #Lavender
+    node MQTT #Bisque {
+        queue sub as "esp32/sub"  #WhiteSmoke
+        queue pub as "esp32/pub"  #WhiteSmoke
+    }
+}
+agent esp32 as "ESP32"  #Beige
+
+testclient --> sub
+testclient <-- pub
+
+sub --> esp32 : MQTT\nsubscribe
+pub <-- esp32  : MQTT\npublish
+
+@enduml
