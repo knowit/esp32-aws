@@ -1,30 +1,30 @@
-# MongooseOS with mJS on AWS serverless IoT
+# ESP32 mot AWS Iot
 
 ## Om kurset
 
-Dette kurset viser hvordan man kan lage dingser (Things) som benytter serverless teknologi for å kommunisere med hverandre.
+Dette kurset viser hvordan man kan lage dingser (Things) som benytter serverless teknologi for å kommunisere med skyen og hverandre.
 
-Vi benytter [Mongoose OS](https://mongoose-os.com/) som utviklingsrammeverk og AWS som backend. Mongoose OS gjør konfigurasjon og utvikling av dingsen til en enkel lek, og AWS tar seg av den bråkete og tunge infrastrukturen. Programmeringsspråket på dingsen er [mJS](https://github.com/cesanta/mjs).
-
-Det ferdige produktet består av en dings som har en knapp man kan trykke på, og en annen dings som har en lysdiode som kan lyse.
+Vi benytter AWS som skyteknologi og Arduino som rammeverk på mikrokontrolleren.
 
 ## Utstyr
 
-For å delta trenger du en datamaskin med to USB-A-kontakter. Kurset har blitt testet på macOS, men skal i teorien fungere på alle operativsystemer.
+For å delta trenger du en datamaskin med en eller to USB-A-kontakter. Kurset har blitt testet på macOS, men skal i teorien fungere på alle operativsystemer.
 
 Du trenger også [en konto på AWS](https://portal.aws.amazon.com/billing/signup#/start).
 
 ## Forkunnskaper
 
-Fokuset ligger mest på konfigurasjon av serverless-teknologi. Det blir lite fikling med maskinvare. Basiskunnskaper om Javascript er en fordel.
+Fokuset handler mest mest på konfigurasjon av serverless-teknologi. Det blir lite fikling med maskinvare.
+
+Det er en fordel om du har tatt kurset [esp32-intro](https://github.com/knowit/esp32-intro) tidligere, men det er ikke nødvendig for å følge dette kurset. 
 
 ## Innhold
 
 ### IoT i skyen
 
-Mange skyleverandører (Google, Amazon, Azure, etc) har nå lansert plattformer for Internet-of-Things (IoT).
+Mange skyleverandører (Google, Amazon, Azure, etc) har plattformer for Internet-of-Things (IoT).
 
-Plattformene er sikkert mye forskjellige, men kan gjerne oppsummeres slik:
+Plattformene har gjerne noen fellestrekk:
 
 * Dingsene kommuniserer over en protokoll som heter MQTT. MQTT er en publish-subscribe-protokoll som tilbyr lav overhead og dermed små pakkestørrelser.
 
@@ -38,11 +38,10 @@ Plattformene er sikkert mye forskjellige, men kan gjerne oppsummeres slik:
 
 ### Hva vi skal gjøre
 
-Vi setter opp Mongoose OS på en dings. Dingsen vi bruker heter ESP32. En ESP32 er en mikrokontroller med innebygget støtte for Wifi, har lav kostnad, og er mye utbredt. Mongoose OS er et utviklingsrammeverk som støtter mange forskjellige dingser, og som abstraherer vekk mye av den underliggende SDKen til dingsen. Mongoose tar seg også av konfigurering av MQTT mot skyleverandøren slikt som generering av sertifikater og selve oppkoblingen.
+Vi programmerer en dings for å kommunisere med skyen. Dingsen vi bruker heter ESP32. En ESP32 er en mikrokontroller med innebygget støtte for Wifi, har lav kostnad, og er mye utbredt.
 
-![](./awsiot.png)
+Programvaren på mikrokontrolleren utvikles på rammeverket Arduino.  Arduino er et utviklingsrammeverk som støtter mange forskjellige dingser, og som abstraherer vekk mye av de underliggende tekniske detaljene. Vi benytter et bibliotek som tar seg av konfigurering av MQTT mot skyleverandøren slikt som generering av sertifikater og selve oppkoblingen.
 
-Vi velger skyleverandør litt etter magefølelsen, og lander da på Amazon.
 
 ## Leksjoner
 - [Hello AWS](./hello-aws/README.md)
