@@ -2,7 +2,7 @@
 
 
 ## Legg til biblioteker
-Åpne ```platform.io``` og legg til nye bilblioteker slik:
+Åpne ```platformio.ini``` og legg til nye bilblioteker slik:
 ```properties
 lib_deps = 
 	arduino-libraries/ArduinoHttpClient@^0.4.0
