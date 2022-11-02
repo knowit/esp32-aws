@@ -62,9 +62,11 @@
 1. Klikk ```Download``` på ```Private key file```.
 1. Endre navn på den nedlastede filen til: ```Device Private Key.pem.key``` 
 1. Klikk ```Download``` på ```Public key file```. Den filen kan forkastes. Amazon tvinger deg til å laste den ned.
-1. Under ```Root CA certificates```, klikk ```Download``` på ```Amazon trust services endpoint```. Velg sertifikat som ender på "CA 1".
+1. Under ```Root CA certificates```, klikk ```Download``` på ```Amazon trust services endpoint, RSA 2048 bit key: Amazon Root CA 1```.
 1. Pass på at den nedlastede filen heter ```AmazonRootCA1.pem``` . Dersom den har et annet navn, gi den det navnet
 1. Klikk ```Done```
 1. ```MyNewESP32``` skal nå komme opp i listen over things
 
 Gå videre til: [Legg inn hovedprogram](./4_Legg_inn_hovedprogram.md)
+
+
