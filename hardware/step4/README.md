@@ -1,7 +1,7 @@
  
-## Steg 2: OLED- skjerm
+## Steg 4: Potmeter
 
-I steg 1 skal vi koble til en skjerm.
+I steg 1 skal vi koble til et potmeter.
 
 
 ### Firmware
@@ -20,6 +20,8 @@ void setup()
   Serial.begin(115200);
   Serial.println("init");
   display.init();
+  pinMode(15, INPUT);
+  pinMode(18, OUTPUT);
   pinMode(35, INPUT);
   Serial.println("init..done");
 }
@@ -28,6 +30,7 @@ void loop()
 {
   Serial.print("button: ");
   Serial.println(digitalRead(35));
+  digitalWrite(18, digitalRead(35));
 
   display.clear();
 
@@ -41,28 +44,26 @@ void loop()
   {
     display.drawString(0, 0, "off");
   }
-
+  display.drawString(0, 24, String(analogRead(15)));
   display.display();
 
   delay(500);
 }
+}
 ```
 
-* Åpne filen ```platform.ini``` og legg inn bibliotek for skjermen:
 
-```ini
-lib_deps = 
-	thingpulse/ESP8266 and ESP32 OLED driver for SSD1306 displays@^4.2.1
-```
 
 ### Hardware
 
-Utvid kretsen med skjerm:
+Koble opp som vist:
 
-![](./step2_bb.jpeg)
+![](./step4_bb.jpeg)
 
-![](./step2_cam.jpg)
+![](./step4_cam_3.jpg)
+![](./step4_cam_1.jpg)
+![](./step4_cam_2.jpg)
 
 Last opp programmet.
 
-Nå du trykker på knappen skal skjermen vise enten "on" eller "off".
+Nå du vrir på potmeter, vises det en verdi mellom 0 og 4095 på skjermen

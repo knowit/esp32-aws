@@ -1,7 +1,7 @@
  
-## Steg 2: OLED- skjerm
+## Steg 2: LED
 
-I steg 1 skal vi koble til en skjerm.
+I steg 1 skal vi koble til en LED.
 
 
 ### Firmware
@@ -20,6 +20,7 @@ void setup()
   Serial.begin(115200);
   Serial.println("init");
   display.init();
+  pinMode(18, OUTPUT);
   pinMode(35, INPUT);
   Serial.println("init..done");
 }
@@ -28,6 +29,7 @@ void loop()
 {
   Serial.print("button: ");
   Serial.println(digitalRead(35));
+  digitalWrite(18, digitalRead(35));
 
   display.clear();
 
@@ -48,21 +50,16 @@ void loop()
 }
 ```
 
-* Åpne filen ```platform.ini``` og legg inn bibliotek for skjermen:
 
-```ini
-lib_deps = 
-	thingpulse/ESP8266 and ESP32 OLED driver for SSD1306 displays@^4.2.1
-```
 
 ### Hardware
 
-Utvid kretsen med skjerm:
+Utvid kretsen med LED:
 
-![](./step2_bb.jpeg)
+![](./step3_bb.jpeg)
 
-![](./step2_cam.jpg)
+![](./step3_cam.jpg)
 
 Last opp programmet.
 
-Nå du trykker på knappen skal skjermen vise enten "on" eller "off".
+Nå du trykker på knappen, lyser LED-en.
