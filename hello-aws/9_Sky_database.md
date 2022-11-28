@@ -19,116 +19,37 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 5. Create Function
 6. Legg inn følgende kode i lambdaen
 
-    const  AWS = require(‘aws-sdk’);
-	const  dynamo = new  AWS.DynamoDB.DocumentClient();
+    const AWS = require(‘aws - sdk’);
+	const dynamo = new AWS.DynamoDB.DocumentClient();
 
-	  
-
-	const  collection =“IoTCatalog”
-
-	  
+	const collection = “IoTCatalog”
 
 	// Handler lamda function
 
-	  
-
 	exports.handler = function(event, context) {
 
-	  
+		const params = {
 
-	const  params = {
-
-	  
-
-	TableName:  collection,
-
-	  
-
-	Item:{
-
-	  
-
-	“serialNumber”:  event.serialNumber,
-
-	  
-
-	“timestamp”:  event.dateTime,
-
-	  
-
-	“activated”:  event.activated,
-
-	  
-
-	“clientId”:  event.clientId,
-
-	  
-
-	“device”:  event.device,
-
-	  
-
-	“type”:  event.type,
-
-	  
-
-	“payload”:  event.payload
-
-	  
-
-	}
-
-	  
-
-	};
-
-	  
-	  
-
-	dynamo.put(params, function(err, data) {
-
-	  
-
-	if (err) {
-
-	  
-
-	console.error(“Unable  to  add  device. Error  JSON:”, JSON.stringify(err, null, 2));
-
-	  
-
-	context.fail();
-
-	  
-
-	} else {
-
-	  
-
-	console.log(data)
-
-	  
-
-	console.log(“Data  saved:”, JSON.stringify(params, null, 2));
-
-	  
-
-	context.succeed();
-
-	  
-
-	return {“message”: “Item  created  in  DB”}
-
-	  
-
-	}
-
-	  
-
-	});
-
-	  
-
+			TableName: collection,
+			Item: {
+				“serialNumber”: "ESP32",
+				“timestamp”: Date.now(),
+				"value": event.value,
+			}
+		};
+		dynamo.put(params, function(err, data) {
+			if (err) {
+				console.error(“Unable to add device.Error JSON: ”, JSON.stringify(err, null, 2));
+				context.fail();
+			} else {
+				console.log(data)
+				console.log(“Data saved: ”, JSON.stringify(params, null, 2));
+				context.succeed();
+				return {
+					“message”: “Item created in DB”
+				}
+			}
+		});
 	}
 
 # 3. Gi rettigheter til lambdaen
