@@ -8,7 +8,7 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 2. Gå til tables og trykk create table
 3.  Velg navn på tabellen, kall denne IoTCatalog
 4. På partition key skriv "device"
-5. På sort key skriv "timestamp"
+5. På sort key skriv "timestamp" og velg number
 6. Trykk create table
 
 # 2. Opprett en lambda
@@ -19,10 +19,10 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 5. Create Function
 6. Legg inn følgende kode i lambdaen
 
-    const AWS = require(‘aws - sdk’);
+    const AWS = require('aws-sdk');
 	const dynamo = new AWS.DynamoDB.DocumentClient();
 
-	const collection = “IoTCatalog”
+	const collection = "IoTCatalog"
 
 	// Handler lamda function
 
@@ -32,21 +32,21 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 
 			TableName: collection,
 			Item: {
-				“serialNumber”: "ESP32",
-				“timestamp”: Date.now(),
+				"device": "ESP32",
+				"timestamp": Date.now(),
 				"value": event.value,
 			}
 		};
 		dynamo.put(params, function(err, data) {
 			if (err) {
-				console.error(“Unable to add device.Error JSON: ”, JSON.stringify(err, null, 2));
+				console.error("Unable to add device.Error JSON: ", JSON.stringify(err, null, 2));
 				context.fail();
 			} else {
 				console.log(data)
-				console.log(“Data saved: ”, JSON.stringify(params, null, 2));
+				console.log("Data saved: ", JSON.stringify(params, null, 2));
 				context.succeed();
 				return {
-					“message”: “Item created in DB”
+					"message": "Item created in DB"
 				}
 			}
 		});
@@ -60,22 +60,16 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 5. Kopier inn følgende policy
 
     {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "VisualEditor0",
-                "Effect": "Allow",
-                "Action": "iam:ListAccountAliases",
-                "Resource": "*"
-            },
-            {
-                "Sid": "VisualEditor1",
-                "Effect": "Allow",
-                "Action": "iot:Publish",
-                "Resource": "*"
-            }
-        ]
-    }
+		"Version": "2012-10-17",
+		"Statement": [
+			{
+				"Sid": "VisualEditor0",
+				"Effect": "Allow",
+				"Action": "dynamodb:PutItem",
+				"Resource": "*"
+			}
+		]
+	}
 6. Trykk next til du kommer til navnsetting.
 7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den
 8. Forbli på policy og trykk inn på den du akkurat opprettet
