@@ -51,3 +51,5 @@ Value: 2.14159
 ```
 
 **Gratulerer!** Du har nå satt opp en ESP32 til å sende og motta meldinger til AWS IoT.
+
+Gå videre til: [Send og motta meldinger i Python](./8_Send_og_motta_meldinger_med_python.md)
