@@ -33,7 +33,7 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 			TableName: collection,
 			Item: {
 				"device": "ESP32",
-				"timestamp": Date.now(),
+				"timestamp": event.time,
 				"value": event.value,
 			}
 		};
