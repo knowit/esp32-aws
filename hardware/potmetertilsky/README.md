@@ -60,8 +60,9 @@ Koble opp som vist:
 
 ![](./step4_bb.jpeg)
 
-![](./step4_cam_2.jpg)
+![](./step4_cam_3.jpg)
 ![](./step4_cam_1.jpg)
+![](./step4_cam_2.jpg)
 
 Last opp programmet.
 
