@@ -96,6 +96,8 @@ Dette eksempelet vil ta utgangspunkt i Python.
 
 **Gratulerer!** Du har nå satt opp en PC/Raspberry Pi til å sende og motta meldinger fra AWS IoT og din ESP32.
 
+Gå videre til: [Lag en Lambda i AWS](./9_Lage_en_Lambda_Sky.md)
+
 (*) Typiske issues er at du ikke kjører Python 3 og/eller ikke har satt opp Path variablen til Python folderen i 'Edit the system environment variables' seksjonen i Windows
 
 (**)  Dette kan du endre på selv etter behov.  Sjekk ut filen ```pubsub.py``` i folderen ```connect_device_package/aws-iot-device-sdk-python-v2/samples```. Relevant seksjon er mellom kodelinjene 90-119. Kanskje legge til separate publish/subscribe topics som argumenter til funksjonen? Husk å endre policy i AWS tilsvarende. Alternativt bruk wildcard * for å dekke alle topics :)
