@@ -22,7 +22,7 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 4. Velg Node.JS 14 på runtime.
 5. Create Function
 6. Legg inn følgende kode i lambdaen
-
+```
     const AWS = require('aws-sdk');
 	const dynamo = new AWS.DynamoDB.DocumentClient();
 
@@ -55,14 +55,14 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 			}
 		});
 	}
-
+```
 # 4. Gi rettigheter til lambdaen
 1. Gå til IAM via søkemenyen på toppen av AWS konsollen. 
 2. Gå til policies
 3. Trykk Create Policy
 4. Bytt til JSON i stedet for visual-editor
 5. Kopier inn følgende policy
-
+```
     {
 		"Version": "2012-10-17",
 		"Statement": [
@@ -74,6 +74,7 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 			}
 		]
 	}
+```
 6. Trykk next til du kommer til navnsetting.
 7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den
 8. Forbli på policy og trykk inn på den du akkurat opprettet
@@ -91,8 +92,9 @@ Dette gjør at den automatisk kjører når du sender melding fra ESP32. Her kan 
 4. Gi den et valgfritt navn og trykk next
 5. La det stå på SQL Version 2016-03-23
 6. Skriv inn følgende SQL statement og trykk next
-
+```
     SELECT * FROM 'esp32/pub'
+```
 7. Under Rule Actions velg Lambda
 8. På Lambda function velger du navnet på lambdaen din
 9. Trykk next, og så create.
