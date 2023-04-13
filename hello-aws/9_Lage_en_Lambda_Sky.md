@@ -1,7 +1,7 @@
 # Steg 1: Opprette en lambda
 
 Gå til Lambda inne på AWS, velg så "Create function". Denne fylles ut etter følgende oppskrift:
-1. Function name: Hva du vil. F.eks. IoT-esp32-lambda
+1. Function name: Du kan bruke hva du vil men her bruker vi `IoT-esp32-lambda`
 2. Runtime: Velg Python
 3. Architecture: La det stå på x86_64
 4. Ikke gjør noen endring på Execution Role
@@ -74,7 +74,7 @@ Liten advarsel. IAM burde alltid gjøres etter least privilege principle. For å
 9. Gå inn på den policien du akkurat opprettet
 10. Gå til fliken *Policy Usage*
 11. Trykk på `Attach`
-12. Huk av på rollen med samme navn som lambdaen du opprettet tidligere (den har sannsynligvis noen tall/bokstaver bak seg)
+12. Huk av på rollen med navn `Iot-esp32-lambda-XXXX` (samme navn som lambdaen du opprettet tidligere)
 13. Trykk `Attach policy`
 
 # 4. Opprett en trigger for lambdaen
@@ -89,7 +89,7 @@ Dette gjør at den automatisk kjører når du sender melding fra ESP32.
     SELECT * FROM 'esp32/pub'
 ```
 7. Under Rule Actions velg Lambda
-8. På Lambda function velger du navnet på lambdaen din
+8. På Lambda function velger du navnet på lambdaen din, `Iot-esp32-lambda`
 9. Trykk next, og så create.
 
 # 5.  Sluttresultat
