@@ -19,13 +19,13 @@ Dette eksempelet vil ta utgangspunkt i Python.
 1. Klikk ```Next```
 
 ## Last ned connection kit og installer
-1. Klikk ```Download connection kit```
-1. Unzip zip filen i en ønsket folder
-1. Du vil nå ha en folder som heter ```connect_device_package``` i ønsket folder
+1. Klikk `Download connection kit`
+1. Lag en folder `connect_device_package`
+1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `ThingName.cert.pem` og `ThingName.public.key`.  (Dersom du har fått en ny folder som heter `connect_device_package` inni folderen din av samme navn så flytt filene fra underkatalogen opp ett nivå og slett underkatalogen.)
 1. Klikk ```Next``` på AWS siden
 
 ## Run connection kit steg
-1. Følg stegene som er listet på denne web siden, de vil variere litt etter valgt miljø/SDK
+1. Følg stegene som er listet på web-siden du nå har fått opp, de vil variere litt etter valgt miljø/SDK
 1. (Bruk ```Copy``` knappene på web siden for å få riktig kommandoer kopiert inn i ditt shell)
 1. Sett riktige rettigheter på scriptet og start scriptet iht til instruksjonene på siden
 1. Ved første gangs kjøring, så vil den sjekke/installere sine dependencier as-needed
@@ -81,7 +81,7 @@ Dette eksempelet vil ta utgangspunkt i Python.
 ```
 
 ## Konfigurer og test scriptet for din nye Thing
-1. Naviger til folderen ```connect_device_package``` og lag en kopi av filen ```start.ps1```
+1. Naviger til folderen `connect_device_package` du opprettet tidligere, og lag en kopi av filen ```start.ps1```
 1. Åpne ```start.ps1``` i din favorit editor.  Finn feltene ```--client_id basicPubSub``` og ```--topic sdk/test/Python```, endre disse til ```--client_id THING_NAME``` og ```--topic esp32/pub```
 1. Lagre endring i filen
 1. FYI: Scriptet og policy er satt opp til å abonnere og sende meldinger til samme topic(**)
