@@ -47,7 +47,7 @@ Seksjonen ```[env:esp32dev]``` skal nå se ca. slik ut:
 ```ini
 [env:esp32dev]
 platform = espressif32
-board = esp32dev
+board = featheresp32
 framework = arduino
 monitor_speed = 115200
 ```
