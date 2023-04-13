@@ -4,9 +4,9 @@
 
 Ved programmering av mikrokontrollere bør man alltid begynne med et veldig enkelt program for å sjekke at alt fungerer som det skal.
 
-* Koble ESP32 til en ledig USB-A - port
+* Koble ESP32 på en SnappySense v1.1 eller v1.2 til en ledig USB-A - port
 
-* Følg [Quick  Quick Start guide](https://docs.platformio.org/en/latest//integration/ide/vscode.html#quick-start) med noen modifikasjoner (se under)
+* Følg [Quick  Quick Start guide](https://docs.platformio.org/en/latest/integration/ide/vscode.html#quick-start) med noen modifikasjoner (se under)
 
 
 * I Project Wizard fyll ut dette:
