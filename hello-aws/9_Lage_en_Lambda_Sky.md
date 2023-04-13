@@ -68,13 +68,14 @@ Liten advarsel. IAM burde alltid gjøres etter least privilege principle. For å
 }
 ```
 
-6. Trykk next til du kommer til navnsetting.
+6. Trykk `Next` til du kommer til navnsetting.
 7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den
-8. Forbli på policy og trykk inn på den du akkurat opprettet
-9. Gå til Policy Usage
-10. Trykk på Attach
-11. Huk av på rollen med samme navn som lambdaen du opprettet tidligere (den har sannsynligvis noen tall/bokstaver bak seg)
-12. Trykk attach policy
+8. Trykk `Create Policy`, den blir opprettet og du kommer tilbake til listen over policies
+9. Gå inn på den policien du akkurat opprettet
+10. Gå til Policy Usage
+11. Trykk på `Attach`
+12. Huk av på rollen med samme navn som lambdaen du opprettet tidligere (den har sannsynligvis noen tall/bokstaver bak seg)
+13. Trykk `Attach policy`
 
 # 4. Opprett en trigger for lambdaen
 Dette gjør at den automatisk kjører når du sender melding fra ESP32. 
