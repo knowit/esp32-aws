@@ -12,8 +12,7 @@ Gå til Lambda inne på AWS, velg så `Create function`. Denne fylles ut etter f
 
 1. Kopier koden og legg den inn under code på lambdaen
    
-
-```
+```python
 import boto3
 import json
         
@@ -101,7 +100,6 @@ En trigger gjør at lambdaen automatisk kjører når en melding kommer fra ESP32
 # 5.  Sluttresultat
 
 FIXME
-
 Det skal nå komme en melding tilbake fra lambdaen når du sender melding til esp32/sub 
  
 Gå videre til: [Sette opp DynamoDB i AWS](./10_Sette_opp_DynamoDB_Sky.md)
