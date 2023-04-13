@@ -125,7 +125,8 @@ void setup()
   delay(1000);
   Wire.begin((int) SDA, SCL);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3c);
-  show("Inited");
+  show("SNAPPY\nWORKSHOP");
+  delay(2000);
   connectAWS();
 }
 
