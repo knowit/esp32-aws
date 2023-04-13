@@ -1,6 +1,6 @@
 ## Feilsøking: Serieport
 
-Se også: [Serieport på Windows](../SerieportWindows/README.md)
+Se også: [Serieport på Windows](https://github.com/knowit/esp32-intro/blob/main/Feilsoeking/SerieportWindows/README.md)
 
 Hvis du får en feilmelding med teksten ```Resource busy: '/dev/cu.usbserial-XXX``` eller liknende, gjør du følgende:
 
@@ -24,7 +24,7 @@ upload_port = /dev/cu.SLAB_USBtoUART
 monitor_port = /dev/cu.SLAB_USBtoUART
 ```
 
-Seksjonen ```[env:esp32dev]``` skal nå se ca. slik ut:
+Seksjonen ```[env:featheresp32]``` skal nå se ca. slik ut:
 
 ```ini
 [env:esp32dev]
