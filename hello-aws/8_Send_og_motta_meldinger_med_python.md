@@ -33,7 +33,7 @@ Dette eksempelet vil ta utgangspunkt i Python.
 ## Verifiser oppsett
 1. En forenklet MQTT klient er å finne nederst på ```Run connection kit``` siden
 1. Verifiser at meldinger blir sendt fra scriptet til web siden
-1. Klikk ```Next``` på AWS siden
+1. Klikk ```Continue``` på AWS siden
 
 ## Device is connected
 1. Wohoo!  Du har nå et fungerende miljø for en IoT Thing på din PC!
