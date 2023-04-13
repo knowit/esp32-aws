@@ -12,28 +12,30 @@ Gå til Lambda inne på AWS, velg så "Create function". Denne fylles ut etter f
 1. Kopier koden og legg den inn under code på lambdaen
    
 
-	    import boto3
-        import json
+```
+import boto3
+import json
         
-        iot_client = boto3.client('iot-data')
-        iam_client = boto3.client('iam')
+iot_client = boto3.client('iot-data')
+iam_client = boto3.client('iam')
         
-        def return_name():
-        	response = iam_client.list_account_aliases()
-        	aliases = response.get('AccountAliases', [])
-        	if aliases:
-        		return aliases[0]
-        	else:
-        		return 'world'
+def return_name():
+    response = iam_client.list_account_aliases()
+    aliases = response.get('AccountAliases', [])
+    if aliases:
+        return aliases[0]
+    else:
+        return 'world'
         
-        def lambda_handler(event, context):
-        	name = return_name()
-        	response = iot_client.publish(
-        		topic='esp32/sub',
-        		qos=1,
-        		retain=False,
-        		payload=json.dumps(f"Hello {name}")
-        	)
+def lambda_handler(event, context):
+    name = return_name()
+    response = iot_client.publish(
+                   topic='esp32/sub',
+                   qos=1,
+                   retain=False,
+                   payload=json.dumps(f"Hello {name}")
+               )
+```
 
 2. Trykk deploy
 
@@ -46,23 +48,26 @@ Liten advarsel. IAM burde alltid gjøres etter least privilege principle. For å
 4. Bytt til JSON i stedet for visual-editor
 5. Kopier inn følgende policy
 
-    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "VisualEditor0",
-                "Effect": "Allow",
-                "Action": "iam:ListAccountAliases",
-                "Resource": "*"
-            },
-            {
-                "Sid": "VisualEditor1",
-                "Effect": "Allow",
-                "Action": "iot:Publish",
-                "Resource": "*"
-            }
-        ]
-    }
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "iam:ListAccountAliases",
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "iot:Publish",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 6. Trykk next til du kommer til navnsetting.
 7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den
 8. Forbli på policy og trykk inn på den du akkurat opprettet
@@ -79,9 +84,9 @@ Dette gjør at den automatisk kjører når du sender melding fra ESP32.
 4. Gi den et valgfritt navn og trykk next
 5. La det stå på SQL Version 2016-03-23
 6. Skriv inn følgende SQL statement og trykk next
-
+```
     SELECT * FROM 'esp32/pub'
-	
+```
 7. Under Rule Actions velg Lambda
 8. På Lambda function velger du navnet på lambdaen din
 9. Trykk next, og så create.
