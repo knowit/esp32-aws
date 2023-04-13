@@ -43,6 +43,9 @@ const char WIFI_SSID[] = "XXXXXXX";
 const char WIFI_PASSWORD[] = "XXXXXX";
 ```
 
+**MERK** at dette må være et "enkelt" WPA2-nettverk og at WPA2 Enterprise nettverk (Tullin-Entra)
+eller åpne WPA2 nettverk med en Captive Portal (Tullin-Entra-Guest) ikke kan brukes.  Hvis ingen har
+satt opp et nettverk for workshoppen er det enklest å bruke en hotspot på en telefon.
 
 ## Lim inn navn på AWS IoT endepunkt
 1. Åpne [AWS IoT-konsollen](https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/home) 
