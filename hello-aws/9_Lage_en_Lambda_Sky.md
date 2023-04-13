@@ -43,8 +43,8 @@ def lambda_handler(event, context):
 Liten advarsel. IAM burde alltid gjøres etter least privilege principle. For å slippe å tenke på mulige endringer på oppsett og for å gjøre workshoppen så streamlined og bug-free som mulig har man ikke gjort dette, så er ikke best practice. 
 
 1. Gå til IAM via søkemenyen på toppen av AWS konsollen. 
-2. Gå til policies
-3. Trykk Create Policy
+2. Gå til *Policies* i menyen til venstre
+3. Trykk `Create Policy`
 4. Bytt til JSON i stedet for visual-editor
 5. Kopier inn følgende policy
 
@@ -70,9 +70,9 @@ Liten advarsel. IAM burde alltid gjøres etter least privilege principle. For å
 
 6. Trykk `Next` til du kommer til navnsetting.
 7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den
-8. Trykk `Create Policy`, den blir opprettet og du kommer tilbake til listen over policies
+8. Trykk `Create policy`, den blir opprettet og du kommer tilbake til listen over policies
 9. Gå inn på den policien du akkurat opprettet
-10. Gå til Policy Usage
+10. Gå til fliken *Policy Usage*
 11. Trykk på `Attach`
 12. Huk av på rollen med samme navn som lambdaen du opprettet tidligere (den har sannsynligvis noen tall/bokstaver bak seg)
 13. Trykk `Attach policy`
