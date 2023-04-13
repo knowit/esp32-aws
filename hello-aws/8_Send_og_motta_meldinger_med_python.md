@@ -1,7 +1,7 @@
-# Hello AWS: Send og motta meldinger i Python
+# Hello AWS: Send og motta meldinger i Python på PC
 
-Disse stegene viser deg hvordan du kan få AWS til å lage en bundle med scripts som gjør at du kan abonnere og sende meldinger fra for eksempel din PC eller Raspberry Pi.
-Dette eksempelet vil ta utgangspunkt i Python. 
+Disse stegene viser deg hvordan du kan få AWS til å lage en bundle med scripts som gjør at du kan abonnere 
+og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet vil ta utgangspunkt i Python. 
 
 ## Gå til ```Connect one device```
 1. Åpne [AWS IoT-konsollen](https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/home) 
@@ -21,7 +21,9 @@ Dette eksempelet vil ta utgangspunkt i Python.
 ## Last ned connection kit og installer
 1. Klikk `Download connection kit`
 1. Lag en folder `connect_device_package`
-1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `ThingName.cert.pem` og `ThingName.public.key`.  (Dersom du har fått en ny folder som heter `connect_device_package` inni folderen din av samme navn så flytt filene fra underkatalogen opp ett nivå og slett underkatalogen.)
+1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `ThingName.cert.pem` og `ThingName.public.key`.  
+   (Dersom du har fått en ny folder som heter `connect_device_package` inni folderen din av samme navn så flytt filene 
+   fra underkatalogen opp ett nivå og slett underkatalogen.)
 1. Klikk ```Next``` på AWS siden
 
 ## Run connection kit steg
