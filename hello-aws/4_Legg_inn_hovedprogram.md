@@ -89,7 +89,7 @@ void publishMessage()
 {
   StaticJsonDocument<200> doc;
   doc["time"] = millis();
-  doc["analog_32"] = analogRead(32);
+  doc["analog_34"] = analogRead(34);
   char jsonBuffer[512];
   serializeJson(doc, jsonBuffer); // print to client
 
