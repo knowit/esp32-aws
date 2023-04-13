@@ -42,10 +42,10 @@ void loop() {
 monitor_speed = 115200
 ```
 
-Seksjonen ```[env:esp32dev]``` skal nå se ca. slik ut:
+Seksjonen ```[env:featheresp32]``` skal nå se ca. slik ut:
 
 ```ini
-[env:esp32dev]
+[env:featheresp32]
 platform = espressif32
 board = featheresp32
 framework = arduino
