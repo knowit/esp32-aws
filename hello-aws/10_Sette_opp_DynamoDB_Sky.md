@@ -23,39 +23,36 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 5. Create Function
 6. Legg inn følgende kode i lambdaen
 ```
-    const AWS = require('aws-sdk');
-	const dynamo = new AWS.DynamoDB.DocumentClient();
+const AWS = require('aws-sdk');
+const dynamo = new AWS.DynamoDB.DocumentClient();
 
-	const collection = "IoTCatalog"
+const collection = "IoTCatalog"
 
-	// Handler lamda function
-
-	exports.handler = function(event, context) {
-
-		const params = {
-
-			TableName: collection,
-			Item: {
-				"device": "ESP32",
-				"timestamp": event.time,
-				"value": event.value,
-			}
-		};
-		dynamo.put(params, function(err, data) {
-			if (err) {
-				console.error("Unable to add device.Error JSON: ", JSON.stringify(err, null, 2));
-				context.fail();
-			} else {
-				console.log(data)
-				console.log("Data saved: ", JSON.stringify(params, null, 2));
-				context.succeed();
-				return {
-					"message": "Item created in DB"
-				}
-			}
-		});
-	}
+exports.handler = function(event, context) {
+  const params = {
+    TableName: collection,
+    Item: {
+      "device": "ESP32",
+      "timestamp": event.time,
+      "value": event.value,
+    }
+  };
+  dynamo.put(params, function(err, data) {
+    if (err) {
+      console.error("Unable to add device.Error JSON: ", JSON.stringify(err, null, 2));
+      context.fail();
+    } else {
+      console.log(data)
+      console.log("Data saved: ", JSON.stringify(params, null, 2));
+      context.succeed();
+      return {
+        "message": "Item created in DB"
+      }
+    }
+  });
+}
 ```
+
 # 4. Gi rettigheter til lambdaen
 1. Gå til IAM via søkemenyen på toppen av AWS konsollen. 
 2. Gå til policies
@@ -63,17 +60,17 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 4. Bytt til JSON i stedet for visual-editor
 5. Kopier inn følgende policy
 ```
-    {
-		"Version": "2012-10-17",
-		"Statement": [
-			{
-				"Sid": "VisualEditor0",
-				"Effect": "Allow",
-				"Action": "dynamodb:PutItem",
-				"Resource": "*"
-			}
-		]
-	}
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "dynamodb:PutItem",
+            "Resource": "*"
+        }
+    ]
+}
 ```
 6. Trykk next til du kommer til navnsetting.
 7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den
