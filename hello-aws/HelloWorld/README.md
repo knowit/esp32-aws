@@ -53,7 +53,7 @@ monitor_speed = 115200
 ```
 
 
-***Problemer*** med å kommunisere med mikrokontrolleren? Se [Feilsøking, serieport](../../Feilsoeking/Serieport/README.md)
+***Problemer*** med å kommunisere med mikrokontrolleren? Se [Feilsøking, serieport](Feilsoeking_Serieport.md)
 
 * Trykk på Upload på nederste verktøylinje i VSCode:
 
