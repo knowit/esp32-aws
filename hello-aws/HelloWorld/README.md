@@ -14,7 +14,7 @@ Ved programmering av mikrokontrollere bør man alltid begynne med et veldig enke
 | Felt | Verdi |
 |------|-------|
 | **Name:** | HelloWorld
-| **Board:** | Espressif ESP32 Dev Module
+| **Board:** | featheresp32
 | **Framework:** | Arduino
 
 * Hvis du får spørsmålet "Do you trust the authors of the files in this folder?", klikk på Trust the authors .. og deretter "Yes, I trust the authors"
@@ -36,7 +36,7 @@ void loop() {
 }
 ```
 
-* Åpne filen ```platform.ini``` og legg til en ny linje:
+* Åpne filen ```platformio.ini``` og legg til en ny linje:
 
 ```ini
 monitor_speed = 115200
