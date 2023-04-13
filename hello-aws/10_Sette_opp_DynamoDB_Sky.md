@@ -4,6 +4,9 @@
 
 Følg guiden i https://github.com/knowit/esp32-aws/tree/main/hardware/potmetertilsky
 
+Legg til kode (skal inn her)
+Legg til bibliotek for display (legg till i platformio.ini)
+
 # 2. Opprette en Collection i dynamoDB
 
 Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQL databasen dynamoDB. 
