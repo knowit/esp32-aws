@@ -26,7 +26,7 @@ Mange skyleverandører (Google, Amazon, Azure, etc) har plattformer for Internet
 
 Plattformene har gjerne noen fellestrekk:
 
-* Dingsene kommuniserer over en protokoll som heter MQTT. MQTT er en publish-subscribe-protokoll som tilbyr lav overhead og dermed små pakkestørrelser.
+* Dingsene kommuniserer over en protokoll som heter MQTT. MQTT er en sikker publish-subscribe-protokoll med relativt lav overhead og betydelig fleksibilitet som egner seg godt for IoT.
 
 * MQTT krever en meldings-broker som tar i mot og sender meldingene videre. Brokeren har forskjellige "topics" som dingsene kan sende eller lytte etter meldinger på. Hos Amazon ligger brokeren i "IoT Core", hos Azure i "IoT Hub", osv.
 
