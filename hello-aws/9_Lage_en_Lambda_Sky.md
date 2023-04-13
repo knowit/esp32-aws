@@ -1,11 +1,11 @@
 # Steg 1: Opprette en lambda
 
 Gå til Lambda inne på AWS, velg så "Create function". Denne fylles ut etter følgende oppskrift:
-1. Function name: Hva du vil. F.eks. IoT-esp32-lambda
+1. Function name: Du kan bruke hva du vil men her bruker vi `IoT-esp32-lambda`
 2. Runtime: Velg Python
 3. Architecture: La det stå på x86_64
 4. Ikke gjør noen endring på Execution Role
-5. Trykk på Create function nede til høyre
+5. Trykk på `Create a function` nede til høyre
 
 # Steg 2: Legg inn koden i lambdaen
 
@@ -43,8 +43,8 @@ def lambda_handler(event, context):
 Liten advarsel. IAM burde alltid gjøres etter least privilege principle. For å slippe å tenke på mulige endringer på oppsett og for å gjøre workshoppen så streamlined og bug-free som mulig har man ikke gjort dette, så er ikke best practice. 
 
 1. Gå til IAM via søkemenyen på toppen av AWS konsollen. 
-2. Gå til policies
-3. Trykk Create Policy
+2. Gå til *Policies* i menyen til venstre
+3. Trykk `Create Policy`
 4. Bytt til JSON i stedet for visual-editor
 5. Kopier inn følgende policy
 
@@ -68,13 +68,14 @@ Liten advarsel. IAM burde alltid gjøres etter least privilege principle. For å
 }
 ```
 
-6. Trykk next til du kommer til navnsetting.
+6. Trykk `Next` til du kommer til navnsetting.
 7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den
-8. Forbli på policy og trykk inn på den du akkurat opprettet
-9. Gå til Policy Usage
-10. Trykk på Attach
-11. Huk av på rollen med samme navn som lambdaen du opprettet tidligere (den har sannsynligvis noen tall/bokstaver bak seg)
-12. Trykk attach policy
+8. Trykk `Create policy`, den blir opprettet og du kommer tilbake til listen over policies
+9. Gå inn på den policien du akkurat opprettet
+10. Gå til fliken *Policy Usage*
+11. Trykk på `Attach`
+12. Huk av på rollen med navn `Iot-esp32-lambda-XXXX` (samme navn som lambdaen du opprettet tidligere)
+13. Trykk `Attach policy`
 
 # 4. Opprett en trigger for lambdaen
 Dette gjør at den automatisk kjører når du sender melding fra ESP32. 
@@ -88,7 +89,7 @@ Dette gjør at den automatisk kjører når du sender melding fra ESP32.
     SELECT * FROM 'esp32/pub'
 ```
 7. Under Rule Actions velg Lambda
-8. På Lambda function velger du navnet på lambdaen din
+8. På Lambda function velger du navnet på lambdaen din, `Iot-esp32-lambda`
 9. Trykk next, og så create.
 
 # 5.  Sluttresultat
