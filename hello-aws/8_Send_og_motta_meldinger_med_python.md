@@ -10,7 +10,7 @@ Dette eksempelet vil ta utgangspunkt i Python.
 1. Velg ```Connect one device``` i menyen til venstre
 1. Under ```Prepare your device``` siden, kjør en ping test mot AWS for å sjekke tilkoblingen din som i instruksene på denne siden
 1. Klikk ```Next```
-1. Klikk på ```Create a new thing``` på siden og gi enheten din et navn
+1. Klikk på ```Create a new thing``` på siden og gi enheten din et navn, her kaller vi den `ThingName`.
 1. Klikk ```Next```
 
 ## Velg platform og SDK
@@ -47,7 +47,7 @@ Dette eksempelet vil ta utgangspunkt i Python.
 1. Klikk ```JSON```
 1. Slett innhold i feltet ```Policy document```
 1. Lim inn Policy JSON (se under) i feltet ```Policy document```
-1. Erstatt ```ACCOUNT_ID``` med din AWS Account ID. Erstatt ```THING_NAME``` med valgt navn for din nye Thing
+1. Erstatt ```ACCOUNT_ID``` med din AWS Account ID. Erstatt ```THING_NAME``` med valgt navn for din nye Thing (`ThingName` ovenfor)
 1. Klikk ```Save as new version```
 1. Under ```All versions```, så vil du se en version 2, velg denne og gjør den aktiv med ```Set as active```
 
