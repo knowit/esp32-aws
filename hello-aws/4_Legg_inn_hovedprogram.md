@@ -2,29 +2,39 @@
 
 
 ## Legg til biblioteker
+
 Åpne ```platformio.ini``` og legg til nye bilblioteker slik:
+
 ```properties
 lib_deps = 
+	adafruit/Adafruit SSD1306@^2.5.7
 	arduino-libraries/ArduinoHttpClient@^0.4.0
 	bblanchon/ArduinoJson@^6.19.4
 	256dpi/MQTT@2.4.8
 ```
 
 ## Legg inn hovedprogram
+
 Åpne ```main.cpp``` og erstatt innholdet med:
+
 ```cpp
-#include "secrets.h"
-#include <WiFiClientSecure.h>
 #include <MQTTClient.h>
 #include <ArduinoJson.h>
-#include "WiFi.h"
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include <Adafruit_SSD1306.h>
+#include "secrets.h"
+
+#define POWER_ENABLE_PIN A0
+#define PIR_SENSOR_PIN A2
 
 // The MQTT topics that this device should publish/subscribe
 #define AWS_IOT_PUBLISH_TOPIC "esp32/pub"
 #define AWS_IOT_SUBSCRIBE_TOPIC "esp32/sub"
 
-WiFiClientSecure net = WiFiClientSecure();
-MQTTClient client = MQTTClient(256);
+WiFiClientSecure net;
+MQTTClient client(256);
+Adafruit_SSD1306 display(128, 32, &Wire);
 
 void messageHandler(String &topic, String &payload)
 {
@@ -85,26 +95,45 @@ void connectAWS()
   Serial.println("OK - Connected to AWS IoT");
 }
 
-void publishMessage()
+void publishMessage(int val)
 {
   StaticJsonDocument<200> doc;
   doc["time"] = millis();
-  doc["analog_34"] = analogRead(34);
+  doc["reading"] = val;
   char jsonBuffer[512];
   serializeJson(doc, jsonBuffer); // print to client
 
   client.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
 }
 
+void show(const char* msg) {
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.print(msg);
+  display.display();
+}
+
 void setup()
 {
   Serial.begin(115200);
+  delay(100);
+  pinMode(POWER_ENABLE_PIN, OUTPUT);
+  pinMode(PIR_SENSOR_PIN, INPUT);
+  digitalWrite(POWER_ENABLE_PIN, HIGH);
+  delay(1000);
+  Wire.begin((int) SDA, SCL);
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3c);
+  show("Inited");
   connectAWS();
 }
 
 void loop()
 {
-  publishMessage();
+  int val = analogRead(PIR_SENSOR_PIN);
+  show(val ? "busy" : "quiet");
+  publishMessage(val);
   client.loop();
   delay(1000);
 }
