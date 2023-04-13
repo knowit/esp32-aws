@@ -99,7 +99,7 @@ void publishMessage(int val)
 {
   StaticJsonDocument<200> doc;
   doc["time"] = millis();
-  doc["reading"] = val;
+  doc["value"] = val;
   char jsonBuffer[512];
   serializeJson(doc, jsonBuffer); // print to client
 
