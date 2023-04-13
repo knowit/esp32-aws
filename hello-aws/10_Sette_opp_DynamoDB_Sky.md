@@ -4,21 +4,21 @@
 
 Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQL databasen dynamoDB. 
 
-1. Søk opp DynamoDB på AWS
+1. Søk opp DynamoDB i AWS
 2. Gå til tables og trykk `Create table`
-3.  Velg navn på tabellen, kall denne `IoTCatalog`
+3. Velg navn på tabellen, kall denne `IoTCatalog`
 4. På partition key skriv `device`
 5. På sort key skriv `timestamp` og velg `Number`
 6. Trykk `Create table`
 
 # 2. Opprett en lambda
 
-1. Søk på Lambda i AWS
+1. Søk opp Lambda i AWS
 2. Trykk `Create function`
-3. På `Function name` skriv hva du vil, vi bruker `IoTStoreData`
-4. Velg Node.JS 14 på runtime.
+3. På `Function name` skriv `IoTStoreData`
+4. Velg *Node.JS 14* på runtime
 5. Trykk `Create Function`
-6. Legg inn følgende kode i lambdaen
+6. Legg inn følgende kode i lambdaen:
 
 ```js
 const AWS = require('aws-sdk');
@@ -53,7 +53,7 @@ exports.handler = function(event, context) {
 
 # 3. Gi rettigheter til lambdaen
 
-1. Gå til IAM via søkemenyen på toppen av AWS konsollen. 
+1. Søk opp IAM i AWS
 2. Gå til *Policies*
 3. Trykk `Create Policy`
 4. Bytt til JSON i stedet for visual-editor
@@ -74,17 +74,17 @@ exports.handler = function(event, context) {
 ```
 
 6. Trykk `Next` til du kommer til navnsetting.
-7. Velg et navn - dette er ikke viktig så lenge du husker hva du kaller den FIXME
-8. FIXME step missing
-9. Forbli på policy og trykk inn på den du akkurat opprettet
+7. Velg et navn - kall den `IotDataPolicy`
+8. Trykk `Create policy`
+9. Forbli på siden du er på og gå inn på `IotDataPolicy`
 10. Gå til *Policy Usage*
 11. Trykk på `Attach`
-12. Huk av på rollen med samme navn som lambdaen du opprettet tidligere (den har sannsynligvis noen tall/bokstaver bak seg)
+12. Huk av på rollen med navn `IotStoreData-XXXXX` (samme som lambdaen du opprettet tidligere)
 13. Trykk `Attach policy`
 
 # 4. Opprett en trigger for lambdaen
 
-Dette gjør at den automatisk kjører når du sender melding fra ESP32. Her kan du også bruke den du lagde for den forrige oppgaven. Hvis du ikke gjorde den oppgaven så kan du følge oppskriften under. Husk å fjerne triggeren fra forrige oppgave
+En trigger ("Rule") gjør at lambdaen automatisk kjører når du sender melding fra ESP32. Her kan du også bruke den triggeren du lagde for den forrige oppgaven. Hvis du ikke gjorde den oppgaven så kan du følge oppskriften under. Husk i så fall å fjerne triggeren fra forrige oppgave.
 
 1. Gå til IoT core
 2. Under manage på venstresiden velg Message Routing -> Rules
