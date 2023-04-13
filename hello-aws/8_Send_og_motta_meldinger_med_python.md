@@ -15,7 +15,7 @@ Dette eksempelet vil ta utgangspunkt i Python.
 
 ## Velg platform og SDK
 1. Velg ønsket platform
-1. Velg ønsket SDK. Vi har tatt utgangspunkt i Python her. Påse at du har et fungerende Python 3 miljø for ditt system(*).
+1. Velg ønsket SDK. Vi har tatt utgangspunkt i Python her. Påse at du har et fungerende Python 3 miljø for ditt system [1].
 1. Klikk ```Next```
 
 ## Last ned connection kit og installer
@@ -81,23 +81,23 @@ Dette eksempelet vil ta utgangspunkt i Python.
 ```
 
 ## Konfigurer og test scriptet for din nye Thing
-1. Naviger til folderen `connect_device_package` du opprettet tidligere, og lag en kopi av filen ```start.ps1```
-1. Åpne ```start.ps1``` i din favorit editor.  Finn feltene ```--client_id basicPubSub``` og ```--topic sdk/test/Python```, endre disse til ```--client_id THING_NAME``` og ```--topic esp32/pub```
+1. Naviger til folderen `connect_device_package` du opprettet tidligere, og lag en backup-kopi av filen `start.ps1` / `start.sh`
+1. Åpne `start.ps1` / `start.sh` i din favoritt-editor.  Finn feltene `--client_id basicPubSub` og `--topic sdk/test/Python`, endre disse til `--client_id THING_NAME` og `--topic esp32/pub`
 1. Lagre endring i filen
-1. FYI: Scriptet og policy er satt opp til å abonnere og sende meldinger til samme topic(**)
-1. Kjør scriptet ```start.ps1``` (fil vil variere mht sdk type/os valg)
-1. Klikk på ```MQTT test client``` i AWS IoT core konsolen
+1. FYI: Scriptet og policy er satt opp til å abonnere og sende meldinger til samme topic [2]
+1. Kjør scriptet `start.ps1` / `start.sh` 
+1. Klikk på `MQTT test client` i AWS IoT core konsolen
 
 ## Se meldinger fra Python, samme topics som ESP32
-1. Klikk på ```Subscribe to a topic``` (hvis det ikke allerede er valgt)
-1. ```Topic filter```, legg inn denne verdien: ```esp32/pub```
-1. Klikk ```Subscribe```
+1. Klikk på `Subscribe to a topic` (hvis det ikke allerede er valgt)
+1. `Topic filter`, legg inn denne verdien: `esp32/pub`
+1. Klikk `Subscribe`
 1. Du skal nå se meldinger som sendes fra Python scriptet! Hvis du har ESP32 også tilkoblet, så vil du se at meldingene fra denne ender opp i Python scriptet også.
 
 **Gratulerer!** Du har nå satt opp en PC/Raspberry Pi til å sende og motta meldinger fra AWS IoT og din ESP32.
 
 Gå videre til: [Lag en Lambda i AWS](./9_Lage_en_Lambda_Sky.md)
 
-(*) Typiske issues er at du ikke kjører Python 3 og/eller ikke har satt opp Path variablen til Python folderen i 'Edit the system environment variables' seksjonen i Windows
+[1] Typiske issues er at du ikke kjører Python 3 og/eller ikke har satt opp Path variablen til Python folderen i 'Edit the system environment variables' seksjonen i Windows
 
-(**)  Dette kan du endre på selv etter behov.  Sjekk ut filen ```pubsub.py``` i folderen ```connect_device_package/aws-iot-device-sdk-python-v2/samples```. Relevant seksjon er mellom kodelinjene 90-119. Kanskje legge til separate publish/subscribe topics som argumenter til funksjonen? Husk å endre policy i AWS tilsvarende. Alternativt bruk wildcard * for å dekke alle topics :)
+[2]  Dette kan du endre på selv etter behov.  Sjekk ut filen ```pubsub.py``` i folderen ```connect_device_package/aws-iot-device-sdk-python-v2/samples```. Relevant seksjon er mellom kodelinjene 90-119. Kanskje legge til separate publish/subscribe topics som argumenter til funksjonen? Husk å endre policy i AWS tilsvarende. Alternativt bruk wildcard * for å dekke alle topics :)
