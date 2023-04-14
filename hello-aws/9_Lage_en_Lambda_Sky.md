@@ -8,7 +8,7 @@ Gå til Lambda inne på AWS, velg så `Create function`. Denne fylles ut etter f
 2. Runtime: Velg Python
 3. Architecture: La det stå på x86_64
 4. Ikke gjør noen endring på Execution Role
-5. Trykk på `Create a function` nede til høyre
+5. Trykk på `Create function` nede til høyre
 
 ## Legg inn koden i lambdaen
 
