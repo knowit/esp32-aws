@@ -70,7 +70,8 @@ def lambda_handler(event, context):
         payload=json.dumps({"message":"Item created in DB"})
     )
 ```
-4. Trykk `Deploy`
+4. Lagre endringene
+5. Trykk `Deploy`
 
 ## Få inn data
 
