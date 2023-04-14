@@ -56,13 +56,11 @@ dette, så det vi viser er ikke best practice.
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": "iam:ListAccountAliases",
             "Resource": "*"
         },
         {
-            "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": "iot:Publish",
             "Resource": "*"

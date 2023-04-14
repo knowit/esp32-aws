@@ -18,11 +18,10 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 3. Gå inn på `IoT-ESP32-Policy`
 4. Klikk `Edit policy`
 5. Bytt til JSON i stedet for visual-editor
-6. Legg til dette nederst i lista over statements, **husk komma etter forrige item**:
+6. Legg til dette nederst i lista over Statements, **husk komma etter forrige item**:
 
 ```
 {
-    "Sid": "VisualEditor2",
     "Effect": "Allow",
     "Action": "dynamodb:PutItem",
     "Resource": "*"
