@@ -39,7 +39,8 @@ def lambda_handler(event, context):
                )
 ```
 
-2. Trykk deploy
+2. Lagre endringene
+3. Trykk `Deploy`
 
 ## Gi lambdaen ekstra rettigheter
 
