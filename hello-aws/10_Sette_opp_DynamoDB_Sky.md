@@ -75,8 +75,11 @@ def lambda_handler(event, context):
 
 ## Få inn data
 
-FIXME.  Gjør endringer på "device name" på ESP32 og se at dataen kommer inn.
+Skru på devicet og la det koble seg til.  Følg evt med i MQTT Test client for å se at det går trafikk.
 
-Pass på kostnader. Det skal være 1 million månedlige requests gratis på AWS, men står ting å tikker
-så kommer beløpene. Ingen lambdaer kan kjøre uten at det skrives noe fra ESP32.
+I DynamoDB, velg Tables og IoTCatalog og deretter `Explore table items`.  Observer at det er data i tabellen.  Om du laster tabellen om igjen vil du se at det er kommet flere elementer i tabellen.
 
+Kolonnen `value` representerer faktisk sensor-verdien fra PIR-sensoren (bevegelse).  Sitt musestille en stund og du vil se at det kommer inn rader med 0-verdier, mens hvis du beveger deg vil verdiene være 4095.  Du kan sortere tabellen på timestamp (synkende) for å følge med lettere.
+
+Pass på kostnader. Det skal være 1 million månedlige requests gratis på AWS, men står ting og tikker
+så kommer beløpene.  (Ingen lambdaer vil kjøre uten at det skrives noe fra ESP32 eller fra PC-klienten.)
