@@ -11,7 +11,7 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 1. Velg ```Connect one device``` i menyen til venstre
 1. Under ```Prepare your device``` siden, kjør en ping test mot AWS for å sjekke tilkoblingen din som i instruksene på denne siden
 1. Klikk ```Next```
-1. Klikk på ```Create a new thing``` på siden og gi enheten din et navn, her kaller vi den `ThingName`.
+1. Klikk på ```Create a new thing``` på siden og gi enheten din et navn, her kaller vi den `MyNewPCThing`.
 1. Klikk ```Next```
 
 ## Velg platform og SDK
@@ -24,7 +24,7 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 
 1. Klikk `Download connection kit`
 1. Lag en folder `connect_device_package`
-1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `ThingName.cert.pem` og `ThingName.public.key`.  
+1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `MyNewPCThing.cert.pem` og `MyNewPCThing.public.key`.  
    (Dersom du har fått en ny folder som heter `connect_device_package` inni folderen din av samme navn så flytt filene 
    fra underkatalogen opp ett nivå og slett underkatalogen.)
 1. Klikk ```Next``` på AWS siden
@@ -51,12 +51,12 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 
 1. Velg ```Security``` i menyen til venstre
 1. Velg ```Policies``` i menyen til venstre
-1. Klikk på policien som ble laget av wizarden til din nye Thing
+1. Klikk på policien som ble laget av wizarden til din nye thing, `MyNewPCThing`
 1. Klikk ```Edit active version```
 1. Klikk ```JSON```
 1. Slett innhold i feltet ```Policy document```
 1. Lim inn Policy JSON (se under) i feltet ```Policy document```
-1. Erstatt ```ACCOUNT_ID``` med din AWS Account ID. Erstatt ```THING_NAME``` med valgt navn for din nye Thing (`ThingName` ovenfor)
+1. Erstatt ```ACCOUNT_ID``` med din AWS Account ID.
 1. Klikk ```Save as new version```
 1. Under ```All versions```, så vil du se en version 2, velg denne og gjør den aktiv med ```Set as active```
 
@@ -69,7 +69,7 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
     {
       "Effect": "Allow",
       "Action": "iot:Connect",
-      "Resource": "arn:aws:iot:eu-west-1:ACCOUNT_ID:client/THING_NAME"
+      "Resource": "arn:aws:iot:eu-west-1:ACCOUNT_ID:client/MyNewPCThing"
     },
     {
       "Effect": "Allow",
@@ -93,7 +93,7 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 ## Konfigurer og test scriptet for din nye Thing
 
 1. Naviger til folderen `connect_device_package` du opprettet tidligere, og lag en backup av filen `start.ps1` / `start.sh`
-1. Åpne `start.ps1` / `start.sh` i din favoritt-editor.  Finn feltene `--client_id basicPubSub` og `--topic sdk/test/Python`, endre disse til `--client_id THING_NAME` og `--topic esp32/pub`
+1. Åpne `start.ps1` / `start.sh` i din favoritt-editor.  Finn feltene `--client_id basicPubSub` og `--topic sdk/test/Python`, endre disse til `--client_id MyNewPCThing` og `--topic esp32/pub`
 1. Lagre endring i filen
 1. FYI: Scriptet og policy er satt opp til å abonnere og sende meldinger til samme topic [2]
 1. Kjør scriptet `start.ps1` / `start.sh` 
