@@ -112,6 +112,8 @@ Message:
 Value:
 ```
 
+Du kan også se trafikken fra PC-klienten.  Denne sender meldinger til `esp32/pub` med innholdet `Hello World! [n]` (hvor _n_ varierer og merk stor `W` mens meldingen fra lambda har liten `w`, bl.a.).  I MQTT Test client i AWS IoT kan man se trafikken i begge retninger, og det kan man også i terminalvinduet hvor `start.ps1` / `start.sh` kjøres.
+
 Gå videre til: [Sette opp DynamoDB i AWS](./10_Sette_opp_DynamoDB_Sky.md)
 
 
