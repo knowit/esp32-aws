@@ -100,9 +100,18 @@ En trigger gjør at lambdaen automatisk kjører når en melding kommer fra ESP32
 
 ## Sluttresultat
 
-FIXME
-Det skal nå komme en melding tilbake fra lambdaen når du sender melding til esp32/sub 
- 
+Det skal nå komme en melding tilbake fra lambdaen til `esp32/sub` når den mottar en melding.
+
+Dette kan du se i konsollet i VS Code.  Devicet sender en melding til `esp32/pub`, denne går til lambdaen, og denne svarer, og meldingen mottas på devicet:
+``` 
+Message received.
+Topic: esp32/sub
+Payload:
+"Hello world"
+Message: 
+Value:
+```
+
 Gå videre til: [Sette opp DynamoDB i AWS](./10_Sette_opp_DynamoDB_Sky.md)
 
 
