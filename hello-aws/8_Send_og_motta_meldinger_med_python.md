@@ -24,9 +24,7 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 
 1. Klikk `Download connection kit`
 1. Lag en folder `connect_device_package`
-1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `MyNewPCThing.cert.pem` og `MyNewPCThing.public.key`.  
-   (Dersom du har fått en ny folder som heter `connect_device_package` inni folderen din av samme navn så flytt filene 
-   fra underkatalogen opp ett nivå og slett underkatalogen.)
+1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `MyNewPCThing.cert.pem` og `MyNewPCThing.public.key`.
 1. Klikk ```Next``` på AWS siden
 
 ## Run connection kit steg
