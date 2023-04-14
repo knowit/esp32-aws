@@ -88,7 +88,7 @@ En trigger gjør at lambdaen automatisk kjører når en melding kommer fra ESP32
 1. Gå til IoT core
 2. Under *Manage* på venstresiden velg *Message Routing* og deretter *Rules*
 3. Trykk på `Create Rule`
-4. Kall den `IoT-ESP32-Rule` og trykk `Next`
+4. Kall den `IoT_ESP32_Rule` og trykk `Next`
 5. La det stå på SQL Version 2016-03-23
 6. Skriv inn følgende SQL statement og trykk `Next`:
 ```
