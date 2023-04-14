@@ -1,7 +1,7 @@
 # Hello AWS: Konfigurasjon og sertifikater
 
-
 ## Legg til hemmeligheter
+
 Lag en ny fil som heter ```secrets.h``` i katalogen ```src``` og lim inn følgende:
 
 ```cpp
@@ -37,6 +37,7 @@ XXXXXX
 ```
 
 ## Konfigurer WiFi
+
 Sett disse verdiene i henhold til korrekte verdier for WiFi- nettet du vil bruke:
 ```cpp
 const char WIFI_SSID[] = "XXXXXXX";
@@ -48,6 +49,7 @@ eller åpne WPA2 nettverk med en Captive Portal (Tullin-Entra-Guest) ikke kan br
 satt opp et nettverk for workshoppen er det enklest å bruke en hotspot på en telefon.
 
 ## Lim inn navn på AWS IoT endepunkt
+
 1. Åpne [AWS IoT-konsollen](https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/home) 
 1. Kontroller at korrekt region er satt: ```eu-west-1```
 1. Velg ```Settings``` i menyen til venstre
@@ -59,6 +61,7 @@ const char AWS_IOT_ENDPOINT[] = "xxxxxx-ats.iot.eu-west-1.amazonaws.com";
 ```
 
 ## Lim inn sertifikater
+
 Du skal nå lime inn innholdet i sertifikatfilene du har lastet ned fra AWS IoT.
 
 1. Åpne filen ```AmazonRootCA1.pem``` og lim inn innholdet i verdien ```AWS_CERT_CA```:

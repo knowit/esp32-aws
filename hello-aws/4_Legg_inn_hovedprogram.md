@@ -1,6 +1,5 @@
 # Hello AWS: Legg inn hovedprogram
 
-
 ## Legg til biblioteker
 
 Åpne ```platformio.ini``` og legg til nye bilblioteker slik:

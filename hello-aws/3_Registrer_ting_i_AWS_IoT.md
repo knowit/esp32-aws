@@ -2,6 +2,7 @@
 
 
 ## Opprett Policy
+
 1. Velg ```Security``` i menyen til venstre
 1. Velg ```Policies``` i menyen til venstre
 1. Klikk ```Create policy```
@@ -14,6 +15,7 @@
 1. ```Esp32Policy``` skal nå komme opp i listen over policies
 
 ### Policy JSON
+
 ```json
 {
   "Version": "2012-10-17",
@@ -42,9 +44,8 @@
 }
 ```
 
-
-
 ## Registrer ting
+
 1. Velg ```Manage``` i menyen til venstre
 1. Velg ```All devices``` i menyen til venstre
 1. Velg ```Things``` i menyen til venstre

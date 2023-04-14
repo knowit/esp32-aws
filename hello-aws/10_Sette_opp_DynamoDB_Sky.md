@@ -1,6 +1,6 @@
-# Legge til data i dynamodb fra ESP32
+# Hello AWS: Legg data inn i dynamodb fra lambda
 
-# 1. Opprett en Collection i dynamoDB
+## Opprett en Collection i dynamoDB
 
 Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQL databasen dynamoDB. 
 
@@ -11,7 +11,7 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 5. På sort key skriv `timestamp` og velg `Number`
 6. Trykk `Create table`
 
-# 2. Gi nye rettigheter til lambdaen
+## Gi nye rettigheter til lambdaen
 
 1. Søk opp IAM i AWS
 2. Gå til *Policies*
@@ -30,7 +30,7 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 
 8. Trykk `Review policy` og `Save changes`
 
-# 3. Modifiser koden i lambdaen
+## Modifiser koden i lambdaen
 
 1. Søk opp Lambda i AWS
 2. Klikk *Functions* og gå inn på `IoT-ESP32-Lambda`
@@ -40,26 +40,29 @@ Først så må vi opprette et sted for lagring av data fra ESP32. Vi bruker NoSQ
 import boto3
 import json
 
-db = boto3.client("dynamodb")
+db_client = boto3.client("dynamodb")
 iot_client = boto3.client("iot-data")
 
 def lambda_handler(event, context):
     timestamp = event["time"]
     value = event["value"]
-    db.put_item(TableName="IoTCatalog",
-                Item={"device":   {"S":"ESP32"},
-                      "timestamp":{"N":str(timestamp)},
-                      "value":    {"N":str(value)}})
+
+    db_client.put_item(
+        TableName="IoTCatalog",
+        Item={"device":   {"S":"ESP32"},
+              "timestamp":{"N":str(timestamp)},
+              "value":    {"N":str(value)}})
+
     iot_client.publish(
-                   topic="esp32/sub",
-                   qos=1,
-                   retain=False,
-                   payload=json.dumps({"message":"Item created in DB"})
-               )
+        topic="esp32/sub",
+        qos=1,
+        retain=False,
+        payload=json.dumps({"message":"Item created in DB"})
+    )
 ```
 4. Trykk `Deploy`
 
-# 5. Få inn data
+## Få inn data
 
 FIXME.  Gjør endringer på "device name" på ESP32 og se at dataen kommer inn.
 

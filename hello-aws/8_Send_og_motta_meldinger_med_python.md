@@ -4,6 +4,7 @@ Disse stegene viser deg hvordan du kan få AWS til å lage en bundle med scripts
 og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet vil ta utgangspunkt i Python. 
 
 ## Gå til ```Connect one device```
+
 1. Åpne [AWS IoT-konsollen](https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/home) 
 1. Kontroller at korrekt region er satt: ```eu-west-1```
 1. Velg ```Connect``` i menyen til venstre
@@ -14,11 +15,13 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 1. Klikk ```Next```
 
 ## Velg platform og SDK
+
 1. Velg ønsket platform
 1. Velg ønsket SDK. Vi har tatt utgangspunkt i Python her. Påse at du har et fungerende Python 3 miljø for ditt system [1].
 1. Klikk ```Next```
 
 ## Last ned connection kit og installer
+
 1. Klikk `Download connection kit`
 1. Lag en folder `connect_device_package`
 1. Unzip zip filen i folderen `connect_device_package`.  Filene har navn som `ThingName.cert.pem` og `ThingName.public.key`.  
@@ -27,21 +30,25 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 1. Klikk ```Next``` på AWS siden
 
 ## Run connection kit steg
+
 1. Følg stegene som er listet på web-siden du nå har fått opp, de vil variere litt etter valgt miljø/SDK
 1. (Bruk ```Copy``` knappene på web siden for å få riktig kommandoer kopiert inn i ditt shell)
 1. Sett riktige rettigheter på scriptet og start scriptet iht til instruksjonene på siden
 1. Ved første gangs kjøring, så vil den sjekke/installere sine dependencier as-needed
 
 ## Verifiser oppsett
+
 1. En forenklet MQTT klient er å finne nederst på ```Run connection kit``` siden
 1. Verifiser at meldinger blir sendt fra scriptet til web siden
 1. Klikk ```Continue``` på AWS siden
 
 ## Device is connected
+
 1. Wohoo!  Du har nå et fungerende miljø for en IoT Thing på din PC!
 1. Neste steg kan være å tilpasse policy og scriptet til din thing til å kunne snakke med din ESP32
 
 ## Konfigurer policy for din nye Thing
+
 1. Velg ```Security``` i menyen til venstre
 1. Velg ```Policies``` i menyen til venstre
 1. Klikk på policien som ble laget av wizarden til din nye Thing
@@ -54,6 +61,7 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 1. Under ```All versions```, så vil du se en version 2, velg denne og gjør den aktiv med ```Set as active```
 
 ### Policy JSON
+
 ```json
 {
   "Version": "2012-10-17",
@@ -83,7 +91,8 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 ```
 
 ## Konfigurer og test scriptet for din nye Thing
-1. Naviger til folderen `connect_device_package` du opprettet tidligere, og lag en backup-kopi av filen `start.ps1` / `start.sh`
+
+1. Naviger til folderen `connect_device_package` du opprettet tidligere, og lag en backup av filen `start.ps1` / `start.sh`
 1. Åpne `start.ps1` / `start.sh` i din favoritt-editor.  Finn feltene `--client_id basicPubSub` og `--topic sdk/test/Python`, endre disse til `--client_id THING_NAME` og `--topic esp32/pub`
 1. Lagre endring i filen
 1. FYI: Scriptet og policy er satt opp til å abonnere og sende meldinger til samme topic [2]
@@ -91,6 +100,7 @@ og sende meldinger fra for eksempel din PC eller Raspberry Pi.  Dette eksempelet
 1. Klikk på `MQTT test client` i AWS IoT core konsolen
 
 ## Se meldinger fra Python, samme topics som ESP32
+
 1. Klikk på `Subscribe to a topic` (hvis det ikke allerede er valgt)
 1. `Topic filter`, legg inn denne verdien: `esp32/pub`
 1. Klikk `Subscribe`

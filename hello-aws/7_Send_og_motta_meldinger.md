@@ -1,6 +1,7 @@
 # Hello AWS: Send og motta meldinger
 
 ## Gå til ```MQTT test client```
+
 1. Åpne [AWS IoT-konsollen](https://eu-west-1.console.aws.amazon.com/iot/home?region=eu-west-1#/home) 
 1. Kontroller at korrekt region er satt: ```eu-west-1```
 1. Velg ```Manage``` i menyen til venstre
@@ -11,6 +12,7 @@
 1. Klikk på ```MQTT test client```
 
 ## Se meldinger fra ESP32
+
 1. Klikk på ```Subscribe to a topic``` (hvis det ikke allerede er valgt)
 1. ```Topic filter```, legg inn denne verdien: ```esp32/pub```
 1. Klikk ```Subscribe```
@@ -24,6 +26,7 @@
 ```
 
 ## Send meldinger til ESP32
+
 1. Klikk på ```Publish to a topic``` 
 1. ```Topic name```, legg inn denne verdien: ```esp32/sub```
 1. Legg inn en melding i ```Message payload``` (se eksempel under)

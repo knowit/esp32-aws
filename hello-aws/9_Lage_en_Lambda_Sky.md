@@ -1,4 +1,6 @@
-# Steg 1: Opprette en lambda
+# Hello AWS: Kjør en lambda når melding kommer inn
+
+## Opprett en lambda
 
 Gå til Lambda inne på AWS, velg så `Create function`. Denne fylles ut etter følgende oppskrift:
 
@@ -8,7 +10,7 @@ Gå til Lambda inne på AWS, velg så `Create function`. Denne fylles ut etter f
 4. Ikke gjør noen endring på Execution Role
 5. Trykk på `Create a function` nede til høyre
 
-# Steg 2: Legg inn koden i lambdaen
+## Legg inn koden i lambdaen
 
 1. Kopier koden og legg den inn under code på lambdaen
    
@@ -39,7 +41,7 @@ def lambda_handler(event, context):
 
 2. Trykk deploy
 
-# 3. Gi lambdaen ekstra rettigheter
+## Gi lambdaen ekstra rettigheter
 
 En liten advarsel: IAM burde alltid gjøres etter least privilege principle. For å slippe å tenke på mulige 
 endringer på oppsett og for å gjøre workshoppen så streamlined og bug-free som mulig har vi ikke gjort 
@@ -78,7 +80,7 @@ dette, så det vi viser er ikke best practice.
 12. Huk av på rollen med navn `IoT-ESP32-Lambda-XXXX` (samme navn som lambdaen du opprettet tidligere)
 13. Trykk `Attach policy`
 
-# 4. Opprett en trigger for lambdaen
+## Opprett en trigger for lambdaen
 
 En trigger gjør at lambdaen automatisk kjører når en melding kommer fra ESP32. 
 
@@ -95,7 +97,7 @@ En trigger gjør at lambdaen automatisk kjører når en melding kommer fra ESP32
 8. På `Lambda` function velger du navnet på lambdaen din, `IoT-ESP32-Lambda`
 9. Trykk `Next`, og så `Create`.
 
-# 5.  Sluttresultat
+## Sluttresultat
 
 FIXME
 Det skal nå komme en melding tilbake fra lambdaen når du sender melding til esp32/sub 
